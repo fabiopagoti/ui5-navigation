@@ -85,11 +85,11 @@
 		},
 		"routing": {
 			"config": {
-				"routerClass": "sap.m.routing.Router",
+				"routerClass": "sap.f.routing.Router",
 				"viewType": "XML",
 				"async": true,
 				"viewPath": "ovly.navigation.view",
-				"controlAggregation": "masterPages",
+				"controlAggregation": "beginColumnPages",
 				"controlId": "app",
 				"clearControlAggregation": false,
 				"transition": "slide",
@@ -112,13 +112,13 @@
 				},
 				"S2": {
 					"viewName": "S2",
-					"controlAggregation": "detailPages",
+					"controlAggregation": "midColumnPages",
 					"viewLevel": 2
 				},
 				"Empty": {
 					"viewType": "JS",
 					"viewName": "Empty",
-					"controlAggregation": "detailPages"
+					"controlAggregation": "midColumnPages"
 				}
 			}
 		}
