@@ -1,0 +1,13 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="ovly.navigation.controller.S2"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Funcionários" showNavButton="{device>/system/phone}" navButtonPress="onBack">
+		<content>
+			<ObjectHeader intro="{Team_Identifier}" title="{Name}" number="{Member_Count}" numberUnit="pessoas"/>
+			<List items="{Team_Members}" itemPress="onItemPress">
+				<items>
+					<ObjectListItem type="Navigation" intro="{Id}" title="{Name}" number="{Age}" numberUnit="anos"/>
+				</items>
+			</List>
+		</content>
+	</Page>
+</mvc:View>

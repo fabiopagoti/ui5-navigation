@@ -1,0 +1,126 @@
+{
+	"_version": "1.12.0",
+	"sap.app": {
+		"id": "ovly.navigation",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"TEA_TEST_APPLICATION": {
+				"uri": "/sap/opu/odata/iwbep/TEA_TEST_APPLICATION/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		}
+	},
+	"sap.ui5": {
+		"flexEnabled": false,
+		"rootView": {
+			"viewName": "ovly.navigation.view.S0",
+			"type": "XML",
+			"async": true,
+			"id": "S0"
+		},
+		"dependencies": {
+			"minUI5Version": "1.60.1",
+			"libs": {
+				"sap.ui.layout": {},
+				"sap.ui.core": {},
+				"sap.m": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ovly.navigation.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request",
+					"useBatch": false
+				},
+				"dataSource": "TEA_TEST_APPLICATION",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ovly.navigation.view",
+				"controlAggregation": "masterPages",
+				"controlId": "app",
+				"clearControlAggregation": false,
+				"transition": "slide",
+				"bypassed": {
+					"target": ["Empty", "S1"]
+				}
+			},
+			"routes": [{
+				"name": "inicial",
+				"pattern": "",
+				"target": ["Empty", "S1"]
+			}, {
+				"name": "equipe",
+				"pattern": "equipe/{idEquipe}",
+				"target": ["S1", "S2"]
+			}],
+			"targets": {
+				"S1": {
+					"viewName": "S1"
+				},
+				"S2": {
+					"viewName": "S2",
+					"controlAggregation": "detailPages",
+					"viewLevel": 2
+				},
+				"Empty": {
+					"viewType": "JS",
+					"viewName": "Empty",
+					"controlAggregation": "detailPages"
+				}
+			}
+		}
+	}
+}
