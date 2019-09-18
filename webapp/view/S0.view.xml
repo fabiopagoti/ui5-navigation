@@ -18,7 +18,7 @@
 		<!--	</detailPages>-->
 		<!--</SplitApp>-->
 		
-		<FlexibleColumnLayout id="app" layout="TwoColumnsBeginExpanded">
+		<FlexibleColumnLayout id="app" layout="{layout>/layout}">
 			<beginColumnPages>
 				
 			</beginColumnPages>

@@ -79,9 +79,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -94,18 +96,38 @@
 				"clearControlAggregation": false,
 				"transition": "slide",
 				"bypassed": {
-					"target": ["Empty", "S1"]
+					"target": [
+						"Empty",
+						"S1"
+					]
 				}
 			},
-			"routes": [{
-				"name": "inicial",
-				"pattern": "",
-				"target": ["Empty", "S1"]
-			}, {
-				"name": "equipe",
-				"pattern": "equipe/{idEquipe}",
-				"target": ["S1", "S2"]
-			}],
+			"routes": [
+				{
+					"name": "inicial",
+					"pattern": "",
+					"target": [
+						"S1"
+					]
+				},
+				{
+					"name": "equipe",
+					"pattern": "equipe/{idEquipe}",
+					"target": [
+						"S1",
+						"S2"
+					]
+				},
+				{
+					"name": "pessoa",
+					"pattern": "equipe/{idEquipe}/pessoa/{idPessoa}",
+					"target": [
+						"S1",
+						"S2",
+						"S3"
+					]
+				}
+			],
 			"targets": {
 				"S1": {
 					"viewName": "S1"
@@ -119,6 +141,11 @@
 					"viewType": "JS",
 					"viewName": "Empty",
 					"controlAggregation": "midColumnPages"
+				},
+				"S3": {
+					"viewType": "XML",
+					"viewName": "S3",
+					"controlAggregation": "endColumnPages"
 				}
 			}
 		}

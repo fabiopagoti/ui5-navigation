@@ -1,0 +1,60 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:m="sap.m" xmlns="sap.uxap" xmlns:form="sap.ui.layout.form"
+	controllerName="ovly.navigation.controller.S3" xmlns:html="http://www.w3.org/1999/xhtml">
+	<m:Page title="Funcionário" showNavButton="true" navButtonPress="onBack">
+		<m:content>
+			<ObjectPageLayout >
+				<headerTitle>
+					<ObjectPageHeader objectTitle="{Name}" objectImageShape="Circle"
+						objectSubtitle="{= ${Gender} === 'M' ? 'Homem': 'Mulher' }, {Age} anos" isObjectTitleAlwaysVisible="true" isObjectSubtitleAlwaysVisible="true">
+						<actions>
+							
+						</actions>
+						<breadcrumbs>
+							
+						</breadcrumbs>
+						<breadCrumbsLinks>
+							
+						</breadCrumbsLinks>
+					</ObjectPageHeader>
+				</headerTitle>
+				<headerContent>
+					
+				</headerContent>
+				<sections>
+					<ObjectPageSection title="Localização" >
+						<subSections>
+							<ObjectPageSubSection >
+								<blocks>
+									<form:SimpleForm>
+										<form:content>
+											<m:Label text="Cidade" />
+											<m:Text text="{Location/City/CityName}, {Location/Region}" />
+											<m:Label text="País" />
+											<m:Text text="{Location/Country}" />
+										</form:content>
+									</form:SimpleForm>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+					<ObjectPageSection title="Equipamentos" >
+						<subSections>
+							<ObjectPageSubSection >
+								<blocks>
+									<m:List items="{MyEquipment}">
+										<m:items>
+											<m:StandardListItem title="{Name}" description="{Description}" />
+										</m:items>
+									</m:List>
+								</blocks>
+							</ObjectPageSubSection>
+						</subSections>
+					</ObjectPageSection>
+				</sections>
+				<footer>
+					
+				</footer>
+			</ObjectPageLayout>
+		</m:content>
+	</m:Page>
+</mvc:View>
